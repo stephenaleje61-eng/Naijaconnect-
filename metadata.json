@@ -1,0 +1,6 @@
+{
+  "name": "NaijaConnect",
+  "description": "Meet People. Build Connections. One Nigeria. The premier Nigerian social networking platform connecting citizens across all 36 states and the FCT.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

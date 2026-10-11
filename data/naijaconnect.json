@@ -1,0 +1,721 @@
+{
+  "users": [
+    {
+      "id": "usr_admin",
+      "name": "Babajide Balogun",
+      "username": "admin",
+      "email": "admin@naijaconnect.ng",
+      "passwordHash": "9d517bad939a52f35e5eb3799c6306e5a01ffd524c89075e20265e18e94d1eda0aa3da5ca74ab7cccbd2ae4ac30243524610a0ab6dbb1a43945d1ecb022ed064",
+      "salt": "c05c5866c10bf9aacde778286fd857e6",
+      "age": 33,
+      "state": "Lagos",
+      "city": "Ikeja",
+      "bio": "NaijaConnect Community Administrator & Software Architect. Building bridges across all 36 states and the FCT. 🇳🇬",
+      "avatar": "/src/assets/images/hero_nigerians_connecting_1791742121950.jpg",
+      "interests": [
+        "Community Building",
+        "Tech Ecosystem",
+        "Public Policy",
+        "Afrobeats"
+      ],
+      "role": "admin",
+      "verified": true,
+      "verificationCode": "VERIFIED",
+      "isSuspended": false,
+      "privacy": {
+        "profilePublic": true,
+        "showOnlineStatus": true,
+        "allowDirectMessages": "everyone"
+      },
+      "createdAt": "2026-01-01T08:00:00Z",
+      "lastActive": "2026-10-11T18:45:19.406Z"
+    },
+    {
+      "id": "usr_chioma",
+      "name": "Chioma Adebayo",
+      "username": "chioma_tech",
+      "email": "chioma@example.ng",
+      "passwordHash": "4d88d60e04a71e7efffa69adf8897b66e5ce65a96f96e166ab8c47d53c063a37cb13a6d6a51e5a4253b59a9198aacfc56d851525c2fba55dcb0cf138443ee06b",
+      "salt": "258800bd8a4936c0ce2b4fb36997076b",
+      "age": 27,
+      "state": "Lagos",
+      "city": "Lekki Phase 1",
+      "bio": "Product Designer & Fintech Enthusiast in Lagos. Proudly Nigerian. Exploring cultural arts, startups, and rooftop discussions.",
+      "avatar": "/src/assets/images/avatar_chioma_adebayo_1791742160027.jpg",
+      "coverImage": "/src/assets/images/lagos_city_vibe_1791742147929.jpg",
+      "interests": [
+        "Product Design",
+        "Fintech",
+        "Art Galleries",
+        "Afrobeats",
+        "Photography"
+      ],
+      "role": "user",
+      "verified": true,
+      "verificationCode": "VERIFIED",
+      "isSuspended": false,
+      "privacy": {
+        "profilePublic": true,
+        "showOnlineStatus": true,
+        "allowDirectMessages": "everyone"
+      },
+      "createdAt": "2026-02-10T11:00:00Z",
+      "lastActive": "2026-10-11T18:24:55.560Z"
+    },
+    {
+      "id": "usr_emeka",
+      "name": "Emeka Okonkwo",
+      "username": "emeka_builds",
+      "email": "emeka@example.ng",
+      "passwordHash": "55b1fcd68e421ca456da62e895a00c6c06bd15c01d980f446612b326a0c58ab1f9d5cb70c90f3c5e2c5481ad532458d4e59803054b9ae5b20afe7d1096f12958",
+      "salt": "b13adb0d6795015e51872595bc0efeb1",
+      "age": 29,
+      "state": "FCT (Abuja)",
+      "city": "Maitama",
+      "bio": "AI researcher and clean energy entrepreneur in Abuja. Passionate about youth mentorship, football, and building the future of Nigeria.",
+      "avatar": "/src/assets/images/avatar_emeka_okonkwo_1791742170390.jpg",
+      "coverImage": "/src/assets/images/community_abuja_tech_1791742137722.jpg",
+      "interests": [
+        "Artificial Intelligence",
+        "Clean Tech",
+        "Football",
+        "Abuja Networking",
+        "Reading"
+      ],
+      "role": "user",
+      "verified": true,
+      "verificationCode": "VERIFIED",
+      "isSuspended": false,
+      "privacy": {
+        "profilePublic": true,
+        "showOnlineStatus": true,
+        "allowDirectMessages": "everyone"
+      },
+      "createdAt": "2026-02-12T14:30:00Z",
+      "lastActive": "2026-10-11T18:23:40.787Z"
+    },
+    {
+      "id": "usr_fatima",
+      "name": "Fatima Sanusi",
+      "username": "fatima_k",
+      "email": "fatima@example.ng",
+      "passwordHash": "903f8da05e3fd4ca9f904a460c45ced574c5414c6ba25cf7527bb8a1edc37bfb006dc9f6fec08b5b04c3ce53baa29d6d99f255c788ad94fec78c8d3d8fd12263",
+      "salt": "1adf94a3023f78ecc8d44e5e1dac7c82",
+      "age": 26,
+      "state": "Kano",
+      "city": "Nassarawa",
+      "bio": "E-commerce logistics founder & agricultural supply chain strategist. Connecting Northern agricultural produce with global markets.",
+      "avatar": "/src/assets/images/avatar_chioma_adebayo_1791742160027.jpg",
+      "interests": [
+        "Agribusiness",
+        "Logistics",
+        "Kano Culture",
+        "Poetry",
+        "Economics"
+      ],
+      "role": "user",
+      "verified": true,
+      "verificationCode": "VERIFIED",
+      "isSuspended": false,
+      "privacy": {
+        "profilePublic": true,
+        "showOnlineStatus": true,
+        "allowDirectMessages": "everyone"
+      },
+      "createdAt": "2026-03-01T09:15:00Z",
+      "lastActive": "2026-10-11T18:23:40.787Z"
+    },
+    {
+      "id": "usr_tunde",
+      "name": "Tunde Oladipo",
+      "username": "tunde_beats",
+      "email": "tunde@example.ng",
+      "passwordHash": "fe229ef1d850b6bec01abc23c906c4483582af66c37d6cc6955ba72cee525bda3ee6b39066af7a6d647ef366d849e3184b675352f1ab31eb13e8051cdc868192",
+      "salt": "11e20c4ea117a42eab99b479ad94618a",
+      "age": 25,
+      "state": "Oyo",
+      "city": "Ibadan",
+      "bio": "Music producer, sound engineer and UI developer based in Bodija, Ibadan. Love Amapiano and Afrobeats fusion.",
+      "avatar": "/src/assets/images/avatar_emeka_okonkwo_1791742170390.jpg",
+      "interests": [
+        "Music Production",
+        "Afrobeats",
+        "Sound Design",
+        "Web Development"
+      ],
+      "role": "user",
+      "verified": true,
+      "verificationCode": "VERIFIED",
+      "isSuspended": false,
+      "privacy": {
+        "profilePublic": true,
+        "showOnlineStatus": true,
+        "allowDirectMessages": "everyone"
+      },
+      "createdAt": "2026-03-05T16:20:00Z",
+      "lastActive": "2026-10-11T18:23:40.787Z"
+    },
+    {
+      "id": "usr_chinedu",
+      "name": "Chinedu Eze",
+      "username": "chinedu_ph",
+      "email": "chinedu@example.ng",
+      "passwordHash": "52f894bedea5cb411727ec9e3b1b3eec67037771e240e106cffab22814f3936f8c5d9d696f9f05e2104be901d814da4adc3b5853054e4e3cbf47d9ad520fbe11",
+      "salt": "5ea027eb3a4d739cabf44ea5648c72e5",
+      "age": 30,
+      "state": "Rivers",
+      "city": "Port Harcourt",
+      "bio": "Energy engineer, photographer, and proud Port Harcourt foodie (Bole and fish lover). Connecting with creative minds across Nigeria.",
+      "avatar": "/src/assets/images/hero_nigerians_connecting_1791742121950.jpg",
+      "interests": [
+        "Energy Sector",
+        "Port Harcourt Bole",
+        "Photography",
+        "Travel",
+        "Investing"
+      ],
+      "role": "user",
+      "verified": true,
+      "verificationCode": "VERIFIED",
+      "isSuspended": false,
+      "privacy": {
+        "profilePublic": true,
+        "showOnlineStatus": true,
+        "allowDirectMessages": "everyone"
+      },
+      "createdAt": "2026-03-10T12:00:00Z",
+      "lastActive": "2026-10-11T18:23:40.787Z"
+    },
+    {
+      "id": "usr_1791743054433_nq1bl",
+      "name": "Amina Bello",
+      "username": "amina_kd",
+      "email": "amina@example.ng",
+      "passwordHash": "abfb7fd6617109abb6ca38a0a93a5fb1a3d521fa6a2643c57c985d686829721ac53ab1bba7f6ff8ce5b917cfc2544613a39bd5d17cad80bd4d78e569a1393862",
+      "salt": "7257b55b23d52ce23ccd360bda291a26",
+      "age": 23,
+      "state": "Kaduna",
+      "city": "Zaria",
+      "bio": "Proud Nigerian from Zaria, Kaduna. Connecting on NaijaConnect! 🇳🇬",
+      "avatar": "/src/assets/images/avatar_emeka_okonkwo_1791742170390.jpg",
+      "interests": [
+        "Afrobeats & Music",
+        "Tech & Software",
+        "Football & Sports"
+      ],
+      "role": "user",
+      "verified": true,
+      "verificationCode": "VERIFIED",
+      "isSuspended": false,
+      "privacy": {
+        "profilePublic": true,
+        "showOnlineStatus": true,
+        "allowDirectMessages": "everyone"
+      },
+      "createdAt": "2026-10-11T18:24:14.433Z",
+      "lastActive": "2026-10-11T18:24:39.002Z"
+    },
+    {
+      "id": "usr_1791743657082_4tkah",
+      "name": "ALEJE STEPHEN",
+      "username": "biostephen",
+      "email": "austinbutlers770@gmail.com",
+      "passwordHash": "94eb3e02782435372344870d9747ab74ed4db58324d73cf848e9701ba0cafeaec69b4b8c2ccab9d491b35b1d3552fc8797610314271078aadcc7f1616331c01a",
+      "salt": "606a23810f8b0a75c1cfaf2f6cc21179",
+      "age": 22,
+      "state": "Benue",
+      "city": "Oju",
+      "bio": "Proud Nigerian from Oju , Benue. Connecting on NaijaConnect! 🇳🇬",
+      "avatar": "/src/assets/images/avatar_chioma_adebayo_1791742160027.jpg",
+      "interests": [
+        "Afrobeats & Music",
+        "Tech & Software",
+        "Football & Sports"
+      ],
+      "role": "user",
+      "verified": true,
+      "verificationCode": "VERIFIED",
+      "isSuspended": false,
+      "privacy": {
+        "profilePublic": true,
+        "showOnlineStatus": true,
+        "allowDirectMessages": "everyone"
+      },
+      "createdAt": "2026-10-11T18:34:17.082Z",
+      "lastActive": "2026-10-11T18:44:53.219Z"
+    },
+    {
+      "id": "usr_1791744334908_us4hj",
+      "name": "Chukwudi Nnamdi",
+      "username": "chukwudi_24",
+      "email": "chukwudi@example.ng",
+      "passwordHash": "66adc65b8f5c507b71245af397e77718dd6dec3d58fb19f16cb9cf207c91a457115e83c6900effda1996e6d3b8abba81f266dbc1de96709e8f830208b2a6964e",
+      "salt": "e825ac5552fe3384db879117df142d7c",
+      "age": 24,
+      "state": "Enugu",
+      "city": "Nsukka",
+      "bio": "Proud Nigerian from Nsukka, Enugu. Finding genuine love on NaijaMatch! 🇳🇬",
+      "avatar": "/src/assets/images/avatar_chioma_adebayo_1791742160027.jpg",
+      "interests": [
+        "Love & Romance",
+        "Afrobeats & Music",
+        "Dinner Dates",
+        "Marriage & Family"
+      ],
+      "role": "user",
+      "verified": false,
+      "verificationCode": "VERIFIED",
+      "isSuspended": false,
+      "privacy": {
+        "profilePublic": true,
+        "showOnlineStatus": true,
+        "allowDirectMessages": "everyone"
+      },
+      "createdAt": "2026-10-11T18:45:34.908Z",
+      "lastActive": "2026-10-11T18:46:02.727Z"
+    }
+  ],
+  "sessions": [
+    {
+      "token": "f3e1954705accfdc83c7cc2a33041fcdba197cbd7104e0b10add704cc4be387d",
+      "userId": "usr_admin",
+      "expiresAt": 1794335037031
+    },
+    {
+      "token": "2a29ca2c79f4418ce12adc84dae8307a9a127f1372fc5a4e76e8b9fdab306134",
+      "userId": "usr_1791743054433_nq1bl",
+      "expiresAt": 1794335054433
+    },
+    {
+      "token": "f9508575ca17bb5036a8bf86606e7dbc3a6a0630bc71db54e7e467428dc1a19c",
+      "userId": "usr_chioma",
+      "expiresAt": 1794335088088
+    },
+    {
+      "token": "3c5350890fda710bbac5bc91c641afcad257a5431a0bae218d8d449a7cb93b11",
+      "userId": "usr_1791743657082_4tkah",
+      "expiresAt": 1794335657082
+    },
+    {
+      "token": "6f2a69e953871bbd7bd3d9f44565ad147f787fcc31cb84c60348272b6f944fce",
+      "userId": "usr_admin",
+      "expiresAt": 1794336319406
+    },
+    {
+      "token": "01dc626fa47c5f5d1b3c992c88510a704b63533ec9778290cf2fc1a3a4eb8f4b",
+      "userId": "usr_1791744334908_us4hj",
+      "expiresAt": 1794336334908
+    },
+    {
+      "token": "d86a4eaf785d7a1003e8d5f9d9e9c6d7d7c2dff9720dd452098294b1bdc3fc7d",
+      "userId": "usr_1791744334908_us4hj",
+      "expiresAt": 1794336362727
+    }
+  ],
+  "connections": [
+    {
+      "id": "conn_1",
+      "senderId": "usr_chioma",
+      "receiverId": "usr_emeka",
+      "status": "accepted",
+      "createdAt": "2026-02-15T10:00:00Z",
+      "updatedAt": "2026-02-15T12:00:00Z"
+    },
+    {
+      "id": "conn_2",
+      "senderId": "usr_fatima",
+      "receiverId": "usr_chioma",
+      "status": "accepted",
+      "createdAt": "2026-03-02T14:00:00Z",
+      "updatedAt": "2026-03-02T16:00:00Z"
+    },
+    {
+      "id": "conn_3",
+      "senderId": "usr_chinedu",
+      "receiverId": "usr_emeka",
+      "status": "pending",
+      "createdAt": "2026-03-14T09:00:00Z",
+      "updatedAt": "2026-03-14T09:00:00Z"
+    },
+    {
+      "id": "conn_1791744009730_if3v",
+      "senderId": "usr_1791743657082_4tkah",
+      "receiverId": "usr_chioma",
+      "status": "pending",
+      "createdAt": "2026-10-11T18:40:09.730Z",
+      "updatedAt": "2026-10-11T18:40:09.730Z"
+    }
+  ],
+  "messages": [
+    {
+      "id": "msg_1",
+      "senderId": "usr_emeka",
+      "receiverId": "usr_chioma",
+      "content": "Hi Chioma! Loved your recent post about the Lekki UI showcase. Are you free for a quick chat regarding the fintech collaboration?",
+      "isRead": true,
+      "createdAt": "2026-03-12T14:10:00Z"
+    },
+    {
+      "id": "msg_2",
+      "senderId": "usr_chioma",
+      "receiverId": "usr_emeka",
+      "content": "Hey Emeka! Absolutely. We are looking for clean energy monitoring UI ideas. How is Abuja treating you today?",
+      "isRead": true,
+      "createdAt": "2026-03-12T14:15:00Z"
+    },
+    {
+      "id": "msg_3",
+      "senderId": "usr_emeka",
+      "receiverId": "usr_chioma",
+      "content": "Weather is wonderful up here in Maitama. I will share the presentation link shortly!",
+      "isRead": true,
+      "createdAt": "2026-03-12T14:20:00Z"
+    },
+    {
+      "id": "msg_1791743079003_ra6u",
+      "senderId": "usr_1791743054433_nq1bl",
+      "receiverId": "usr_chioma",
+      "content": "Hello Chioma! Great to meet you on NaijaConnect.",
+      "isRead": false,
+      "createdAt": "2026-10-11T18:24:39.003Z"
+    }
+  ],
+  "posts": [
+    {
+      "id": "post_1791743071423_jcrh",
+      "authorId": "usr_1791743054433_nq1bl",
+      "content": "Excited to join NaijaConnect from Kaduna State! Hello everyone! 🇳🇬",
+      "stateTag": "Kaduna",
+      "likesCount": 0,
+      "commentsCount": 0,
+      "createdAt": "2026-10-11T18:24:31.423Z"
+    },
+    {
+      "id": "post_1",
+      "authorId": "usr_chioma",
+      "content": "Good morning from Lagos! 🇳🇬 Just wrapped up an inspiring meetup in Lekki with fellow founders and designers. The sheer resilience and innovation bubbling in Nigeria right now is unmatched. Who else is attending the tech showcase in Victoria Island this weekend?",
+      "mediaUrl": "/src/assets/images/lagos_city_vibe_1791742147929.jpg",
+      "stateTag": "Lagos",
+      "communityId": "comm_lagos",
+      "likesCount": 14,
+      "commentsCount": 3,
+      "createdAt": "2026-03-12T09:30:00Z"
+    },
+    {
+      "id": "post_2",
+      "authorId": "usr_emeka",
+      "content": "Abuja evening vibes! We just tested our solar-backed battery storage system for community schools in the FCT. Building for One Nigeria means solving real infrastructure bottlenecks together. Looking to connect with electrical engineers and agritech partners!",
+      "mediaUrl": "/src/assets/images/community_abuja_tech_1791742137722.jpg",
+      "stateTag": "FCT (Abuja)",
+      "communityId": "comm_abuja",
+      "likesCount": 22,
+      "commentsCount": 4,
+      "createdAt": "2026-03-13T17:45:00Z"
+    },
+    {
+      "id": "post_3",
+      "authorId": "usr_fatima",
+      "content": "Kano is buzzing today at Kurmi Market! Direct farm shipments from rural Jigawa and Kano farms are now cataloged digitally. Bridging North-South trade has never been more exciting. Welcome to all new members of NaijaConnect!",
+      "stateTag": "Kano",
+      "communityId": "comm_kano",
+      "likesCount": 18,
+      "commentsCount": 2,
+      "createdAt": "2026-03-14T11:20:00Z"
+    },
+    {
+      "id": "post_4",
+      "authorId": "usr_admin",
+      "content": "Welcome everyone to NaijaConnect — One Nigeria! 🇳🇬 Our mission is simple: to help Nigerians meet genuine people, build lasting friendships, foster professional relationships, and unite across all 36 states and the FCT. Treat every member with warmth and respect.",
+      "mediaUrl": "/src/assets/images/hero_nigerians_connecting_1791742121950.jpg",
+      "likesCount": 45,
+      "commentsCount": 6,
+      "createdAt": "2026-03-10T08:00:00Z"
+    }
+  ],
+  "likes": [
+    {
+      "id": "lk_1",
+      "postId": "post_1",
+      "userId": "usr_emeka",
+      "createdAt": "2026-03-12T09:35:00Z"
+    },
+    {
+      "id": "lk_2",
+      "postId": "post_1",
+      "userId": "usr_admin",
+      "createdAt": "2026-03-12T09:40:00Z"
+    },
+    {
+      "id": "lk_3",
+      "postId": "post_2",
+      "userId": "usr_chioma",
+      "createdAt": "2026-03-13T18:00:00Z"
+    },
+    {
+      "id": "lk_4",
+      "postId": "post_4",
+      "userId": "usr_chioma",
+      "createdAt": "2026-03-10T09:00:00Z"
+    },
+    {
+      "id": "lk_5",
+      "postId": "post_4",
+      "userId": "usr_emeka",
+      "createdAt": "2026-03-10T09:10:00Z"
+    }
+  ],
+  "comments": [
+    {
+      "id": "cmt_1",
+      "postId": "post_1",
+      "userId": "usr_emeka",
+      "content": "Count me in Chioma! I am flying in to Lagos on Friday. Let us connect at the rooftop networking session!",
+      "createdAt": "2026-03-12T10:15:00Z"
+    },
+    {
+      "id": "cmt_2",
+      "postId": "post_1",
+      "userId": "usr_tunde",
+      "content": "Great stuff! Representing Ibadan from Oyo state, will catch the live stream if available!",
+      "createdAt": "2026-03-12T11:00:00Z"
+    },
+    {
+      "id": "cmt_3",
+      "postId": "post_2",
+      "userId": "usr_chinedu",
+      "content": "Solid work Emeka! We are doing something similar in Rivers state for rural communities. Let us exchange notes on direct message.",
+      "createdAt": "2026-03-13T18:20:00Z"
+    }
+  ],
+  "communities": [
+    {
+      "id": "comm_lagos",
+      "slug": "lagos-connect",
+      "name": "Lagos State Community",
+      "description": "Center of Excellence. The premier gathering for Lagosians, Eko hustlers, techies, creatives, and culture shapers.",
+      "category": "States",
+      "stateTag": "Lagos",
+      "banner": "/src/assets/images/lagos_city_vibe_1791742147929.jpg",
+      "membersCount": 4,
+      "createdAt": "2026-01-05T00:00:00Z"
+    },
+    {
+      "id": "comm_abuja",
+      "slug": "abuja-fct",
+      "name": "Abuja & FCT Network",
+      "description": "Federal Capital Territory professionals, policy innovators, civil servants, university students, and entrepreneurs.",
+      "category": "States",
+      "stateTag": "FCT (Abuja)",
+      "banner": "/src/assets/images/community_abuja_tech_1791742137722.jpg",
+      "membersCount": 3,
+      "createdAt": "2026-01-06T00:00:00Z"
+    },
+    {
+      "id": "comm_tech",
+      "slug": "tech-hustle",
+      "name": "Tech & Remote Work Nigeria",
+      "description": "Nigerian software developers, product designers, remote workers, and startup founders sharing opportunities & insights.",
+      "category": "Professional",
+      "membersCount": 5,
+      "createdAt": "2026-01-08T00:00:00Z"
+    },
+    {
+      "id": "comm_rivers",
+      "slug": "rivers-ph-city",
+      "name": "Rivers State (PH City)",
+      "description": "Garden City vibes! Connecting Rivers residents, oil & gas professionals, business owners, and youth.",
+      "category": "States",
+      "stateTag": "Rivers",
+      "membersCount": 2,
+      "createdAt": "2026-01-10T00:00:00Z"
+    },
+    {
+      "id": "comm_kano",
+      "slug": "kano-commerce",
+      "name": "Kano & Northern Hub",
+      "description": "Ancient city of commerce. Entrepreneurs, traders, cultural custodians, and youth across Northern Nigeria.",
+      "category": "States",
+      "stateTag": "Kano",
+      "membersCount": 2,
+      "createdAt": "2026-01-12T00:00:00Z"
+    },
+    {
+      "id": "comm_music",
+      "slug": "afrobeats-entertainment",
+      "name": "Afrobeats & Creative Culture",
+      "description": "From Burna Boy, Wizkid and Rema to emerging indie talents. Music producers, songwriters, video directors, and fans.",
+      "category": "Entertainment",
+      "membersCount": 4,
+      "createdAt": "2026-01-15T00:00:00Z"
+    },
+    {
+      "id": "comm_students",
+      "slug": "universities-nysc",
+      "name": "Nigerian Universities & NYSC",
+      "description": "Students from UNILAG, UI, OAU, ABU, UNN, Covenant and Corp Members sharing career advice, campus life & networking.",
+      "category": "Education",
+      "membersCount": 3,
+      "createdAt": "2026-01-20T00:00:00Z"
+    }
+  ],
+  "communityMembers": [
+    {
+      "id": "cm_1",
+      "communityId": "comm_lagos",
+      "userId": "usr_chioma",
+      "role": "member",
+      "joinedAt": "2026-02-10T12:00:00Z"
+    },
+    {
+      "id": "cm_2",
+      "communityId": "comm_lagos",
+      "userId": "usr_admin",
+      "role": "admin",
+      "joinedAt": "2026-01-05T00:00:00Z"
+    },
+    {
+      "id": "cm_3",
+      "communityId": "comm_abuja",
+      "userId": "usr_emeka",
+      "role": "admin",
+      "joinedAt": "2026-02-12T15:00:00Z"
+    },
+    {
+      "id": "cm_4",
+      "communityId": "comm_tech",
+      "userId": "usr_chioma",
+      "role": "member",
+      "joinedAt": "2026-02-11T10:00:00Z"
+    },
+    {
+      "id": "cm_5",
+      "communityId": "comm_tech",
+      "userId": "usr_emeka",
+      "role": "member",
+      "joinedAt": "2026-02-13T09:00:00Z"
+    },
+    {
+      "id": "cm_6",
+      "communityId": "comm_kano",
+      "userId": "usr_fatima",
+      "role": "admin",
+      "joinedAt": "2026-03-01T10:00:00Z"
+    },
+    {
+      "id": "cm_7",
+      "communityId": "comm_rivers",
+      "userId": "usr_chinedu",
+      "role": "admin",
+      "joinedAt": "2026-03-10T13:00:00Z"
+    }
+  ],
+  "notifications": [
+    {
+      "id": "notif_1",
+      "userId": "usr_chioma",
+      "actorId": "usr_emeka",
+      "type": "post_like",
+      "title": "New Like",
+      "message": "Emeka Okonkwo liked your post about Lekki design meetup.",
+      "entityId": "post_1",
+      "isRead": false,
+      "createdAt": "2026-03-12T09:35:00Z"
+    },
+    {
+      "id": "notif_2",
+      "userId": "usr_emeka",
+      "actorId": "usr_chinedu",
+      "type": "connection_request",
+      "title": "Connection Request",
+      "message": "Chinedu Eze sent you a connection request from Rivers State.",
+      "entityId": "usr_chinedu",
+      "isRead": false,
+      "createdAt": "2026-03-14T09:00:00Z"
+    },
+    {
+      "id": "notif_3",
+      "userId": "usr_chioma",
+      "actorId": "usr_admin",
+      "type": "security_alert",
+      "title": "Security Notice",
+      "message": "Your account was successfully verified with NaijaConnect.",
+      "isRead": true,
+      "createdAt": "2026-02-10T11:05:00Z"
+    },
+    {
+      "id": "notif_1791743054433",
+      "userId": "usr_1791743054433_nq1bl",
+      "actorId": "usr_admin",
+      "type": "security_alert",
+      "title": "Welcome to NaijaConnect!",
+      "message": "E kaabo / Nnoo / Sannu da zuwa! Welcome to NaijaConnect. Your email verification code is 142055.",
+      "isRead": false,
+      "createdAt": "2026-10-11T18:24:14.433Z"
+    },
+    {
+      "id": "notif_1791743079003",
+      "userId": "usr_chioma",
+      "actorId": "usr_1791743054433_nq1bl",
+      "type": "new_message",
+      "title": "New Message",
+      "message": "Amina Bello: Hello Chioma! Great to meet you on NaijaConne...",
+      "entityId": "usr_1791743054433_nq1bl",
+      "isRead": false,
+      "createdAt": "2026-10-11T18:24:39.003Z"
+    },
+    {
+      "id": "notif_1791743657082",
+      "userId": "usr_1791743657082_4tkah",
+      "actorId": "usr_admin",
+      "type": "security_alert",
+      "title": "Welcome to NaijaConnect!",
+      "message": "E kaabo / Nnoo / Sannu da zuwa! Welcome to NaijaConnect. Your email verification code is 190502.",
+      "isRead": false,
+      "createdAt": "2026-10-11T18:34:17.082Z"
+    },
+    {
+      "id": "notif_1791744009730",
+      "userId": "usr_chioma",
+      "actorId": "usr_1791743657082_4tkah",
+      "type": "connection_request",
+      "title": "New Connection Request",
+      "message": "ALEJE STEPHEN from Benue sent you a connection request!",
+      "entityId": "conn_1791744009730_if3v",
+      "isRead": false,
+      "createdAt": "2026-10-11T18:40:09.730Z"
+    },
+    {
+      "id": "notif_1791744334908",
+      "userId": "usr_1791744334908_us4hj",
+      "actorId": "usr_admin",
+      "type": "security_alert",
+      "title": "Welcome to NaijaMatch!",
+      "message": "E kaabo / Nnoo / Sannu da zuwa! Welcome to NaijaMatch. Your email verification code is 197807.",
+      "isRead": false,
+      "createdAt": "2026-10-11T18:45:34.908Z"
+    }
+  ],
+  "reports": [
+    {
+      "id": "rep_1",
+      "reporterId": "usr_fatima",
+      "reportedPostId": "post_1",
+      "reason": "Verification Question",
+      "details": "Sample review report: inquiring about venue safety for offline meetup.",
+      "status": "reviewed",
+      "actionNotes": "Reviewed by Admin Balogun. Event was confirmed verified.",
+      "createdAt": "2026-03-12T12:00:00Z"
+    }
+  ],
+  "auditLogs": [
+    {
+      "id": "log_1",
+      "adminId": "usr_admin",
+      "action": "COMMUNITY_CREATED",
+      "targetType": "community",
+      "targetId": "comm_lagos",
+      "details": "Initialized Lagos State community hub",
+      "createdAt": "2026-01-05T00:00:00Z"
+    }
+  ]
+}
