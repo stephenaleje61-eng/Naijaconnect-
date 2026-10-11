@@ -2,7 +2,7 @@ import express, { Request, Response, NextFunction } from 'express';
 import path from 'path';
 import crypto from 'crypto';
 import fs from 'fs';
-import { db, User, Connection, Post, PostComment, Message, hashPassword, verifyPassword } from './server/db.ts';
+import { db, User, Connection, Post, PostComment, Message, LoungeMessage, hashPassword, verifyPassword } from './server/db.ts';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -939,6 +939,217 @@ app.post('/api/communities/:id/leave', authMiddleware, (req: AuthRequest, res: R
   }
 
   return res.json({ message: `Left ${comm.name}.`, membersCount: comm.membersCount });
+});
+
+/* ==========================================================================
+   PUBLIC & NATIONAL CHAT ROOMS ("THE SPACE FOR CHATTING")
+   ========================================================================== */
+
+const NATIONAL_CHAT_ROOMS = [
+  {
+    id: 'one-nigeria',
+    name: 'One Nigeria Live Lounge',
+    slogan: 'National Live Chat for All 36 States & FCT',
+    icon: '🇳🇬',
+    description: 'The national town square where all Nigerians meet, share updates, and build connections.',
+    category: 'National',
+  },
+  {
+    id: 'tech-hub',
+    name: 'Tech & Career Hub',
+    slogan: 'Code, Design & Founders Space',
+    icon: '💻',
+    description: 'Software engineers, founders, remote workers, and creative professionals across Nigeria.',
+    category: 'Professional',
+  },
+  {
+    id: 'afrobeats',
+    name: 'Afrobeats & Vibes',
+    slogan: 'Music, Entertainment & Pop Culture',
+    icon: '🎵',
+    description: 'Celebrate Nigerian sound, films, jokes, and creative culture.',
+    category: 'Culture',
+  },
+  {
+    id: 'sports',
+    name: 'Super Eagles & Sports',
+    slogan: 'Football & Naija Banter',
+    icon: '⚽',
+    description: 'Premier League banter, Super Eagles match discussions, and athletic achievements.',
+    category: 'Sports',
+  },
+  {
+    id: 'lagos',
+    name: 'Lagos Live Room',
+    slogan: 'Center of Excellence Hub',
+    icon: '🏙️',
+    description: 'Eko hustle, Lekki, Ikeja, Mainland, Island, events and local connections.',
+    category: 'State Rooms',
+  },
+  {
+    id: 'abuja',
+    name: 'Abuja & The North',
+    slogan: 'FCT & Northern States Network',
+    icon: '🏛️',
+    description: 'Maitama, Wuse, Kano, Kaduna, Jos, and Northern innovators.',
+    category: 'State Rooms',
+  },
+  {
+    id: 'rivers',
+    name: 'Niger Delta & Rivers',
+    slogan: 'Port Harcourt & South-South Hub',
+    icon: '🌊',
+    description: 'Oil & energy, PH City vibes, cultural heritage, and coastal networking.',
+    category: 'State Rooms',
+  },
+];
+
+// List all chat rooms
+app.get('/api/chat/rooms', authMiddleware, (req: AuthRequest, res: Response) => {
+  const rooms = NATIONAL_CHAT_ROOMS.map(r => {
+    const roomMsgs = db.loungeMessages.filter(m => (m.roomId || 'one-nigeria') === r.id);
+    const lastMsg = roomMsgs[roomMsgs.length - 1] || null;
+    let populatedLastMsg = null;
+    if (lastMsg) {
+      const sender = db.users.find(u => u.id === lastMsg.senderId);
+      populatedLastMsg = {
+        ...lastMsg,
+        sender: sender ? sanitizeUser(sender) : null,
+      };
+    }
+    return {
+      ...r,
+      messagesCount: roomMsgs.length,
+      activeCount: Math.max(12, db.users.length * 2 + 5),
+      lastMessage: populatedLastMsg,
+    };
+  });
+  return res.json({ rooms });
+});
+
+// Get messages for a specific chat room
+app.get('/api/chat/rooms/:roomId/messages', authMiddleware, (req: AuthRequest, res: Response) => {
+  const roomId = req.params.roomId;
+  const messages = db.loungeMessages
+    .filter(m => (m.roomId || 'one-nigeria') === roomId)
+    .sort((a, b) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime())
+    .map(m => {
+      const sender = db.users.find(u => u.id === m.senderId);
+      return {
+        ...m,
+        sender: sender ? sanitizeUser(sender) : {
+          id: m.senderId,
+          name: 'Nigerian Member',
+          username: 'member',
+          avatar: '/src/assets/images/hero_nigerians_connecting_1791742121950.jpg',
+          state: 'Nigeria',
+          city: 'Federal',
+          verified: true,
+          role: 'user',
+        },
+      };
+    });
+
+  const roomInfo = NATIONAL_CHAT_ROOMS.find(r => r.id === roomId) || {
+    id: roomId,
+    name: 'Chat Room',
+    slogan: 'One Nigeria Chat Space',
+    icon: '🇳🇬',
+    description: 'Live chat room',
+    category: 'Community',
+  };
+
+  return res.json({
+    room: roomInfo,
+    messages,
+  });
+});
+
+// Post a message to a chat room
+app.post('/api/chat/rooms/:roomId/messages', authMiddleware, (req: AuthRequest, res: Response) => {
+  const roomId = req.params.roomId;
+  const { content, mediaUrl, replyTo } = req.body;
+
+  if ((!content || !content.trim()) && !mediaUrl) {
+    return res.status(400).json({ error: 'Message cannot be empty.' });
+  }
+
+  const newMsg: LoungeMessage = {
+    id: `pubmsg_${Date.now()}_${Math.random().toString(36).substring(2, 6)}`,
+    roomId,
+    senderId: req.user!.id,
+    content: (content || '').trim(),
+    mediaUrl: mediaUrl || undefined,
+    replyTo: replyTo || undefined,
+    reactions: {},
+    createdAt: new Date().toISOString(),
+  };
+
+  db.loungeMessages.push(newMsg);
+  db.save();
+
+  return res.json({
+    message: 'Message sent!',
+    data: {
+      ...newMsg,
+      sender: sanitizeUser(req.user!),
+    },
+  });
+});
+
+// React to a room message
+app.post('/api/chat/rooms/:roomId/messages/:messageId/react', authMiddleware, (req: AuthRequest, res: Response) => {
+  const { messageId } = req.params;
+  const { emoji } = req.body;
+  const userId = req.user!.id;
+
+  if (!emoji) return res.status(400).json({ error: 'Emoji is required.' });
+
+  const msg = db.loungeMessages.find(m => m.id === messageId);
+  if (!msg) return res.status(404).json({ error: 'Message not found.' });
+
+  if (!msg.reactions) msg.reactions = {};
+  if (!msg.reactions[emoji]) msg.reactions[emoji] = [];
+
+  const userIdx = msg.reactions[emoji].indexOf(userId);
+  if (userIdx !== -1) {
+    msg.reactions[emoji].splice(userIdx, 1);
+    if (msg.reactions[emoji].length === 0) {
+      delete msg.reactions[emoji];
+    }
+  } else {
+    msg.reactions[emoji].push(userId);
+  }
+
+  db.save();
+  return res.json({ reactions: msg.reactions });
+});
+
+// Delete a room message (author or admin)
+app.delete('/api/chat/rooms/:roomId/messages/:messageId', authMiddleware, (req: AuthRequest, res: Response) => {
+  const { messageId } = req.params;
+  const user = req.user!;
+
+  const idx = db.loungeMessages.findIndex(m => m.id === messageId);
+  if (idx === -1) return res.status(404).json({ error: 'Message not found.' });
+
+  const target = db.loungeMessages[idx];
+  if (target.senderId !== user.id && user.role !== 'admin') {
+    return res.status(403).json({ error: 'Permission denied.' });
+  }
+
+  db.loungeMessages.splice(idx, 1);
+  db.save();
+  return res.json({ success: true, message: 'Message removed.' });
+});
+
+// Get quick contacts for direct messages
+app.get('/api/messages/contacts', authMiddleware, (req: AuthRequest, res: Response) => {
+  const currentUserId = req.user!.id;
+  const contacts = db.users
+    .filter(u => u.id !== currentUserId && !u.isSuspended)
+    .map(sanitizeUser);
+  return res.json({ contacts });
 });
 
 /* ==========================================================================

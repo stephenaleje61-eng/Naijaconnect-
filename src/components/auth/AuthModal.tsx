@@ -3,7 +3,7 @@ import { useAuth } from '../../context/AuthContext.tsx';
 import { NIGERIAN_STATES } from '../../data/nigeriaStates.ts';
 import { NigerianFlag } from '../common/NigerianFlag.tsx';
 import { X, ShieldCheck, Mail, Lock, User, MapPin, CheckCircle2, AlertCircle, ArrowRight, Heart } from 'lucide-react';
-import { apiFetch } from '../../lib/api.ts';
+import { apiFetch, extractErrorMessage } from '../../lib/api.ts';
 
 export const AuthModal: React.FC = () => {
   const {
@@ -69,7 +69,7 @@ export const AuthModal: React.FC = () => {
     try {
       await login(loginIdentifier.trim(), loginPassword);
     } catch (err: any) {
-      setError(err?.message || 'Login failed. Please check your credentials.');
+      setError(extractErrorMessage(err, 'Login failed. Please check your credentials.'));
     } finally {
       setLoading(false);
     }
@@ -80,26 +80,56 @@ export const AuthModal: React.FC = () => {
     setError(null);
     setSuccessMsg(null);
 
-    if (age < 18) {
+    const cleanName = name.trim();
+    const cleanUsername = username.trim();
+    const cleanEmail = email.trim().toLowerCase();
+    const cleanCity = city.trim();
+
+    if (!cleanName) {
+      setError('Please enter your full name.');
+      return;
+    }
+
+    if (!cleanUsername || cleanUsername.length < 3) {
+      setError('Username must be at least 3 characters long.');
+      return;
+    }
+
+    if (!/^[a-zA-Z0-9_]{3,30}$/.test(cleanUsername)) {
+      setError('Username must be 3-30 characters and contain only letters, numbers, and underscores.');
+      return;
+    }
+
+    if (!cleanEmail || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(cleanEmail)) {
+      setError('Please enter a valid email address (e.g. name@domain.ng).');
+      return;
+    }
+
+    if (!password || password.length < 6) {
+      setError('Password must be at least 6 characters long.');
+      return;
+    }
+
+    if (isNaN(Number(age)) || Number(age) < 18) {
       setError('You must be at least 18 years old to join NaijaMatch.');
       return;
     }
 
-    if (password.length < 6) {
-      setError('Password must be at least 6 characters long.');
+    if (!cleanCity) {
+      setError('Please enter your city or area.');
       return;
     }
 
     setLoading(true);
     try {
       const code = await register({
-        name: name.trim(),
-        username: username.trim(),
-        email: email.trim(),
+        name: cleanName,
+        username: cleanUsername,
+        email: cleanEmail,
         password,
         age: Number(age),
         state,
-        city: city.trim(),
+        city: cleanCity,
       });
       if (code) {
         setVerificationCode(code);
@@ -107,7 +137,7 @@ export const AuthModal: React.FC = () => {
       setMode('verify');
       setSuccessMsg('Registration successful! Please confirm your 6-digit email code.');
     } catch (err: any) {
-      setError(err?.message || 'Registration failed.');
+      setError(extractErrorMessage(err, 'Registration failed. Please check your details and try again.'));
     } finally {
       setLoading(false);
     }
@@ -121,7 +151,7 @@ export const AuthModal: React.FC = () => {
       await verifyEmail(verificationCode.trim());
       closeAuthModal();
     } catch (err: any) {
-      setError(err?.message || 'Verification failed. Please check code.');
+      setError(extractErrorMessage(err, 'Verification failed. Please check code.'));
     } finally {
       setLoading(false);
     }
@@ -134,7 +164,7 @@ export const AuthModal: React.FC = () => {
       if (newCode) setVerificationCode(newCode);
       setSuccessMsg(`New verification code generated: ${newCode}`);
     } catch (err: any) {
-      setError(err?.message || 'Could not resend code.');
+      setError(extractErrorMessage(err, 'Could not resend code. Please try again.'));
     }
   };
 
@@ -151,7 +181,7 @@ export const AuthModal: React.FC = () => {
       setForgotStep(2);
       setSuccessMsg(`Recovery code generated: ${res.recoveryCode}`);
     } catch (err: any) {
-      setError(err?.message || 'Error requesting reset.');
+      setError(extractErrorMessage(err, 'Error requesting password reset.'));
     } finally {
       setLoading(false);
     }
@@ -170,7 +200,7 @@ export const AuthModal: React.FC = () => {
       setMode('login');
       setLoginIdentifier(forgotEmail);
     } catch (err: any) {
-      setError(err?.message || 'Error resetting password.');
+      setError(extractErrorMessage(err, 'Error resetting password.'));
     } finally {
       setLoading(false);
     }
@@ -183,7 +213,7 @@ export const AuthModal: React.FC = () => {
     try {
       await login(identifier, pass);
     } catch (err: any) {
-      setError(err?.message || 'Sign in failed.');
+      setError(extractErrorMessage(err, 'Sign in failed.'));
     } finally {
       setLoading(false);
     }

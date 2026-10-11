@@ -71,7 +71,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView, setCurrentView }) =
                 currentView === 'chat' ? 'border-[#008751] text-[#008751]' : 'border-transparent'
               }`}
             >
-              <span>Messages</span>
+              <span>Chat & Rooms</span>
               {counts.unreadMessages > 0 && (
                 <span className="ml-1 px-1.5 py-0.2 rounded-full bg-[#008751] text-white text-[10px] font-bold">
                   {counts.unreadMessages}

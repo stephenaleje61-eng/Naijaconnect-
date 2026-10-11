@@ -54,6 +54,21 @@ export interface Message {
   createdAt: string;
 }
 
+export interface LoungeMessage {
+  id: string;
+  roomId?: string; // e.g. 'one-nigeria', 'tech-hub', 'afrobeats', 'sports', 'lagos', 'abuja', 'rivers'
+  senderId: string;
+  content: string;
+  mediaUrl?: string;
+  replyTo?: {
+    id: string;
+    senderName: string;
+    content: string;
+  };
+  reactions?: Record<string, string[]>; // emoji -> array of userIds
+  createdAt: string;
+}
+
 export interface Post {
   id: string;
   authorId: string;
@@ -151,6 +166,7 @@ interface DatabaseSchema {
   notifications: Notification[];
   reports: Report[];
   auditLogs: AuditLog[];
+  loungeMessages?: LoungeMessage[];
 }
 
 const DB_DIR = path.resolve(process.cwd(), 'data');
@@ -183,7 +199,12 @@ export class Database {
     if (fs.existsSync(DB_FILE)) {
       try {
         const raw = fs.readFileSync(DB_FILE, 'utf-8');
-        return JSON.parse(raw);
+        const parsed = JSON.parse(raw);
+        if (!parsed.loungeMessages || parsed.loungeMessages.length === 0) {
+          parsed.loungeMessages = this.getSeedLoungeMessages();
+          this.saveDirect(parsed);
+        }
+        return parsed;
       } catch (err) {
         console.error('Failed to parse database file, reinitializing', err);
       }
@@ -212,6 +233,12 @@ export class Database {
   get sessions() { return this.data.sessions; }
   get connections() { return this.data.connections; }
   get messages() { return this.data.messages; }
+  get loungeMessages(): LoungeMessage[] {
+    if (!this.data.loungeMessages) {
+      this.data.loungeMessages = [];
+    }
+    return this.data.loungeMessages;
+  }
   get posts() { return this.data.posts; }
   get likes() { return this.data.likes; }
   get comments() { return this.data.comments; }
@@ -656,6 +683,8 @@ export class Database {
       },
     ];
 
+    const loungeMessages = this.getSeedLoungeMessages();
+
     return {
       users,
       sessions: [],
@@ -669,7 +698,118 @@ export class Database {
       notifications,
       reports,
       auditLogs,
+      loungeMessages,
     };
+  }
+
+  public getSeedLoungeMessages(): LoungeMessage[] {
+    return [
+      {
+        id: 'pubmsg_1',
+        roomId: 'one-nigeria',
+        senderId: 'usr_admin',
+        content: 'Welcome to the One Nigeria Live Lounge! 🇳🇬 Connect with brothers and sisters from Lagos to Maiduguri, Calabar to Sokoto. Let us build together with warmth and respect.',
+        mediaUrl: '/src/assets/images/hero_nigerians_connecting_1791742121950.jpg',
+        reactions: { '🇳🇬': ['usr_chioma', 'usr_emeka', 'usr_fatima'], '❤️': ['usr_tunde'] },
+        createdAt: '2026-03-14T08:00:00Z',
+      },
+      {
+        id: 'pubmsg_2',
+        roomId: 'one-nigeria',
+        senderId: 'usr_chioma',
+        content: 'Good morning everyone from Lagos! ☀️ Lekki is breezy today. Looking forward to meeting and networking with people across all states. Feel free to say hi!',
+        reactions: { '🔥': ['usr_emeka', 'usr_tunde'], '👏': ['usr_fatima'] },
+        createdAt: '2026-03-14T08:15:00Z',
+      },
+      {
+        id: 'pubmsg_3',
+        roomId: 'one-nigeria',
+        senderId: 'usr_emeka',
+        content: 'Greetings from the Federal Capital Territory, Abuja! 🏛️ Excited for this national chat room. If you are in clean tech, AI, or agriculture, drop a message right here!',
+        reactions: { '💪': ['usr_chioma'], '🇳🇬': ['usr_chinedu'] },
+        createdAt: '2026-03-14T08:30:00Z',
+      },
+      {
+        id: 'pubmsg_4',
+        roomId: 'one-nigeria',
+        senderId: 'usr_fatima',
+        content: 'Salam alaikum from Kano! 🌾 Wonderful initiative. Connecting farmers, traders, and founders across North and South is the future of our nation.',
+        reactions: { '🙌': ['usr_admin', 'usr_chioma'] },
+        createdAt: '2026-03-14T08:45:00Z',
+      },
+      {
+        id: 'pubmsg_5',
+        roomId: 'one-nigeria',
+        senderId: 'usr_tunde',
+        content: 'Representing Ibadan from Oyo state! 🎵 Afrobeats and amapiano vibes cooking in the studio. Hope everyone is having a productive day! 🇳🇬',
+        reactions: { '😂': ['usr_chinedu', 'usr_chioma'], '🔥': ['usr_emeka'] },
+        createdAt: '2026-03-14T09:00:00Z',
+      },
+      {
+        id: 'pubmsg_6',
+        roomId: 'one-nigeria',
+        senderId: 'usr_chinedu',
+        content: 'Port Harcourt in the building! Bole and fish on deck. Welcome to all new members joining us today! 🌊',
+        reactions: { '❤️': ['usr_chioma', 'usr_admin'] },
+        createdAt: '2026-03-14T09:10:00Z',
+      },
+      {
+        id: 'pubmsg_tech_1',
+        roomId: 'tech-hub',
+        senderId: 'usr_chioma',
+        content: 'Who is working on fintech, UI design, or full-stack engineering? Let us share design critiques and open roles here! 💻',
+        reactions: { '💻': ['usr_emeka'] },
+        createdAt: '2026-03-14T09:15:00Z',
+      },
+      {
+        id: 'pubmsg_tech_2',
+        roomId: 'tech-hub',
+        senderId: 'usr_emeka',
+        content: 'We are deploying solar telemetry monitors with local developers in Abuja. The tech ecosystem in Nigeria is resilient and unstoppable! 🚀',
+        reactions: { '🔥': ['usr_chioma'] },
+        createdAt: '2026-03-14T09:20:00Z',
+      },
+      {
+        id: 'pubmsg_afro_1',
+        roomId: 'afrobeats',
+        senderId: 'usr_tunde',
+        content: 'What is your top Naija jam this week? Asake, Rema, Burna, Ayra Starr, or Shallipopi? Drop recommendations! 🎶',
+        reactions: { '🎵': ['usr_chioma', 'usr_chinedu'] },
+        createdAt: '2026-03-14T09:25:00Z',
+      },
+      {
+        id: 'pubmsg_sports_1',
+        roomId: 'sports',
+        senderId: 'usr_emeka',
+        content: 'Super Eagles squad looking solid for the upcoming qualifiers! Who is watching the match this weekend? 🦅⚽',
+        reactions: { '🇳🇬': ['usr_tunde', 'usr_admin'] },
+        createdAt: '2026-03-14T09:28:00Z',
+      },
+      {
+        id: 'pubmsg_lagos_1',
+        roomId: 'lagos',
+        senderId: 'usr_chioma',
+        content: 'Third Mainland Bridge traffic is moving smoothly this morning! Eko o ni baje o! Wishing everyone in Lagos a great day! 🏙️',
+        reactions: { '🙌': ['usr_admin'] },
+        createdAt: '2026-03-14T09:30:00Z',
+      },
+      {
+        id: 'pubmsg_abuja_1',
+        roomId: 'abuja',
+        senderId: 'usr_emeka',
+        content: 'Abuja evening breeze at Millennium Park. Anyone attending the weekend founders mixer? 🌳',
+        reactions: { '🇳🇬': ['usr_admin'] },
+        createdAt: '2026-03-14T09:35:00Z',
+      },
+      {
+        id: 'pubmsg_rivers_1',
+        roomId: 'rivers',
+        senderId: 'usr_chinedu',
+        content: 'Garden City vibes! Anyone around Stadium Road or GRA? Let us connect for good food and conversation! 🌊',
+        reactions: { '❤️': ['usr_chioma'] },
+        createdAt: '2026-03-14T09:40:00Z',
+      },
+    ];
   }
 }
 

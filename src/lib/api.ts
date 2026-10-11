@@ -61,6 +61,34 @@ export interface CommunityItem {
   isMember?: boolean;
 }
 
+export interface ChatRoomItem {
+  id: string;
+  name: string;
+  slogan: string;
+  icon: string;
+  description: string;
+  category: string;
+  messagesCount: number;
+  activeCount: number;
+  lastMessage?: PublicChatMessageItem | null;
+}
+
+export interface PublicChatMessageItem {
+  id: string;
+  roomId?: string;
+  senderId: string;
+  sender?: UserProfile;
+  content: string;
+  mediaUrl?: string;
+  replyTo?: {
+    id: string;
+    senderName: string;
+    content: string;
+  };
+  reactions?: Record<string, string[]>;
+  createdAt: string;
+}
+
 export interface ConversationItem {
   partnerId: string;
   partner: UserProfile;

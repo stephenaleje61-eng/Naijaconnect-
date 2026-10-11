@@ -60,7 +60,7 @@
         "allowDirectMessages": "everyone"
       },
       "createdAt": "2026-02-10T11:00:00Z",
-      "lastActive": "2026-10-11T18:24:55.560Z"
+      "lastActive": "2026-10-11T19:41:08.578Z"
     },
     {
       "id": "usr_emeka",
@@ -92,7 +92,7 @@
         "allowDirectMessages": "everyone"
       },
       "createdAt": "2026-02-12T14:30:00Z",
-      "lastActive": "2026-10-11T18:23:40.787Z"
+      "lastActive": "2026-10-11T19:41:08.584Z"
     },
     {
       "id": "usr_fatima",
@@ -242,7 +242,7 @@
         "allowDirectMessages": "everyone"
       },
       "createdAt": "2026-10-11T18:34:17.082Z",
-      "lastActive": "2026-10-11T18:44:53.219Z"
+      "lastActive": "2026-10-11T19:36:46.913Z"
     },
     {
       "id": "usr_1791744334908_us4hj",
@@ -273,6 +273,36 @@
       },
       "createdAt": "2026-10-11T18:45:34.908Z",
       "lastActive": "2026-10-11T18:46:02.727Z"
+    },
+    {
+      "id": "usr_1791746764271_1b6y7",
+      "name": "Kemi Adams",
+      "username": "kemi_adams",
+      "email": "kemi@example.ng",
+      "passwordHash": "ef616e1cf0444b24d6253403d1fa166fd9404dfc47ece843aacafbd24a0d013fb0ff3cea556541e9a43c655f696d37daf88af0e5b15db8732cc957fc49c4e1a1",
+      "salt": "60e9284bc529ddc4263608d4a2095228",
+      "age": 28,
+      "state": "Ogun",
+      "city": "Abeokuta",
+      "bio": "Proud Nigerian from Abeokuta, Ogun. Finding genuine love on NaijaMatch! 🇳🇬",
+      "avatar": "/src/assets/images/avatar_chioma_adebayo_1791742160027.jpg",
+      "interests": [
+        "Love & Romance",
+        "Afrobeats & Music",
+        "Dinner Dates",
+        "Marriage & Family"
+      ],
+      "role": "user",
+      "verified": true,
+      "verificationCode": "VERIFIED",
+      "isSuspended": false,
+      "privacy": {
+        "profilePublic": true,
+        "showOnlineStatus": true,
+        "allowDirectMessages": "everyone"
+      },
+      "createdAt": "2026-10-11T19:26:04.271Z",
+      "lastActive": "2026-10-11T19:26:24.232Z"
     }
   ],
   "sessions": [
@@ -310,6 +340,26 @@
       "token": "d86a4eaf785d7a1003e8d5f9d9e9c6d7d7c2dff9720dd452098294b1bdc3fc7d",
       "userId": "usr_1791744334908_us4hj",
       "expiresAt": 1794336362727
+    },
+    {
+      "token": "857d9dcd9451ad2552d16309195b2a8422ad7325ed2b4cc1b9d190438d6f8ade",
+      "userId": "usr_1791746764271_1b6y7",
+      "expiresAt": 1794338764271
+    },
+    {
+      "token": "7edb28f5a36043f464f09cce481b9e540db25c475d3d5f03ae9f30080ec5464d",
+      "userId": "usr_1791746764271_1b6y7",
+      "expiresAt": 1794338784232
+    },
+    {
+      "token": "686b1f4e2045fe285b3b9c59831575085186633eb2435b75c776a81ae92c808b",
+      "userId": "usr_chioma",
+      "expiresAt": 1794339668496
+    },
+    {
+      "token": "615fef6c0370417eca0187788af4d8958844bcbaae3ce77ef8f2b3b8b3b6f54f",
+      "userId": "usr_emeka",
+      "expiresAt": 1794339668567
     }
   ],
   "connections": [
@@ -409,7 +459,7 @@
       "stateTag": "FCT (Abuja)",
       "communityId": "comm_abuja",
       "likesCount": 22,
-      "commentsCount": 4,
+      "commentsCount": 5,
       "createdAt": "2026-03-13T17:45:00Z"
     },
     {
@@ -485,6 +535,13 @@
       "userId": "usr_chinedu",
       "content": "Solid work Emeka! We are doing something similar in Rivers state for rural communities. Let us exchange notes on direct message.",
       "createdAt": "2026-03-13T18:20:00Z"
+    },
+    {
+      "id": "cmt_1791747329792_x0ah",
+      "postId": "post_2",
+      "userId": "usr_1791743657082_4tkah",
+      "content": "Wow",
+      "createdAt": "2026-10-11T19:35:29.792Z"
     }
   ],
   "communities": [
@@ -693,6 +750,27 @@
       "message": "E kaabo / Nnoo / Sannu da zuwa! Welcome to NaijaMatch. Your email verification code is 197807.",
       "isRead": false,
       "createdAt": "2026-10-11T18:45:34.908Z"
+    },
+    {
+      "id": "notif_1791746764271",
+      "userId": "usr_1791746764271_1b6y7",
+      "actorId": "usr_admin",
+      "type": "security_alert",
+      "title": "Welcome to NaijaMatch!",
+      "message": "E kaabo / Nnoo / Sannu da zuwa! Welcome to NaijaMatch. Your email verification code is 579720.",
+      "isRead": false,
+      "createdAt": "2026-10-11T19:26:04.271Z"
+    },
+    {
+      "id": "notif_1791747329792",
+      "userId": "usr_emeka",
+      "actorId": "usr_1791743657082_4tkah",
+      "type": "post_comment",
+      "title": "New Comment",
+      "message": "ALEJE STEPHEN commented: \"Wow...\"",
+      "entityId": "post_2",
+      "isRead": false,
+      "createdAt": "2026-10-11T19:35:29.792Z"
     }
   ],
   "reports": [
@@ -716,6 +794,201 @@
       "targetId": "comm_lagos",
       "details": "Initialized Lagos State community hub",
       "createdAt": "2026-01-05T00:00:00Z"
+    }
+  ],
+  "loungeMessages": [
+    {
+      "id": "pubmsg_1",
+      "roomId": "one-nigeria",
+      "senderId": "usr_admin",
+      "content": "Welcome to the One Nigeria Live Lounge! 🇳🇬 Connect with brothers and sisters from Lagos to Maiduguri, Calabar to Sokoto. Let us build together with warmth and respect.",
+      "mediaUrl": "/src/assets/images/hero_nigerians_connecting_1791742121950.jpg",
+      "reactions": {
+        "🇳🇬": [
+          "usr_chioma",
+          "usr_emeka",
+          "usr_fatima"
+        ],
+        "❤️": [
+          "usr_tunde"
+        ]
+      },
+      "createdAt": "2026-03-14T08:00:00Z"
+    },
+    {
+      "id": "pubmsg_2",
+      "roomId": "one-nigeria",
+      "senderId": "usr_chioma",
+      "content": "Good morning everyone from Lagos! ☀️ Lekki is breezy today. Looking forward to meeting and networking with people across all states. Feel free to say hi!",
+      "reactions": {
+        "🔥": [
+          "usr_emeka",
+          "usr_tunde"
+        ],
+        "👏": [
+          "usr_fatima"
+        ]
+      },
+      "createdAt": "2026-03-14T08:15:00Z"
+    },
+    {
+      "id": "pubmsg_3",
+      "roomId": "one-nigeria",
+      "senderId": "usr_emeka",
+      "content": "Greetings from the Federal Capital Territory, Abuja! 🏛️ Excited for this national chat room. If you are in clean tech, AI, or agriculture, drop a message right here!",
+      "reactions": {
+        "💪": [
+          "usr_chioma"
+        ],
+        "🇳🇬": [
+          "usr_chinedu"
+        ]
+      },
+      "createdAt": "2026-03-14T08:30:00Z"
+    },
+    {
+      "id": "pubmsg_4",
+      "roomId": "one-nigeria",
+      "senderId": "usr_fatima",
+      "content": "Salam alaikum from Kano! 🌾 Wonderful initiative. Connecting farmers, traders, and founders across North and South is the future of our nation.",
+      "reactions": {
+        "🙌": [
+          "usr_admin",
+          "usr_chioma"
+        ]
+      },
+      "createdAt": "2026-03-14T08:45:00Z"
+    },
+    {
+      "id": "pubmsg_5",
+      "roomId": "one-nigeria",
+      "senderId": "usr_tunde",
+      "content": "Representing Ibadan from Oyo state! 🎵 Afrobeats and amapiano vibes cooking in the studio. Hope everyone is having a productive day! 🇳🇬",
+      "reactions": {
+        "😂": [
+          "usr_chinedu",
+          "usr_chioma"
+        ],
+        "🔥": [
+          "usr_emeka"
+        ]
+      },
+      "createdAt": "2026-03-14T09:00:00Z"
+    },
+    {
+      "id": "pubmsg_6",
+      "roomId": "one-nigeria",
+      "senderId": "usr_chinedu",
+      "content": "Port Harcourt in the building! Bole and fish on deck. Welcome to all new members joining us today! 🌊",
+      "reactions": {
+        "❤️": [
+          "usr_chioma",
+          "usr_admin"
+        ]
+      },
+      "createdAt": "2026-03-14T09:10:00Z"
+    },
+    {
+      "id": "pubmsg_tech_1",
+      "roomId": "tech-hub",
+      "senderId": "usr_chioma",
+      "content": "Who is working on fintech, UI design, or full-stack engineering? Let us share design critiques and open roles here! 💻",
+      "reactions": {
+        "💻": [
+          "usr_emeka"
+        ]
+      },
+      "createdAt": "2026-03-14T09:15:00Z"
+    },
+    {
+      "id": "pubmsg_tech_2",
+      "roomId": "tech-hub",
+      "senderId": "usr_emeka",
+      "content": "We are deploying solar telemetry monitors with local developers in Abuja. The tech ecosystem in Nigeria is resilient and unstoppable! 🚀",
+      "reactions": {
+        "🔥": [
+          "usr_chioma"
+        ]
+      },
+      "createdAt": "2026-03-14T09:20:00Z"
+    },
+    {
+      "id": "pubmsg_afro_1",
+      "roomId": "afrobeats",
+      "senderId": "usr_tunde",
+      "content": "What is your top Naija jam this week? Asake, Rema, Burna, Ayra Starr, or Shallipopi? Drop recommendations! 🎶",
+      "reactions": {
+        "🎵": [
+          "usr_chioma",
+          "usr_chinedu"
+        ]
+      },
+      "createdAt": "2026-03-14T09:25:00Z"
+    },
+    {
+      "id": "pubmsg_sports_1",
+      "roomId": "sports",
+      "senderId": "usr_emeka",
+      "content": "Super Eagles squad looking solid for the upcoming qualifiers! Who is watching the match this weekend? 🦅⚽",
+      "reactions": {
+        "🇳🇬": [
+          "usr_tunde",
+          "usr_admin"
+        ]
+      },
+      "createdAt": "2026-03-14T09:28:00Z"
+    },
+    {
+      "id": "pubmsg_lagos_1",
+      "roomId": "lagos",
+      "senderId": "usr_chioma",
+      "content": "Third Mainland Bridge traffic is moving smoothly this morning! Eko o ni baje o! Wishing everyone in Lagos a great day! 🏙️",
+      "reactions": {
+        "🙌": [
+          "usr_admin"
+        ]
+      },
+      "createdAt": "2026-03-14T09:30:00Z"
+    },
+    {
+      "id": "pubmsg_abuja_1",
+      "roomId": "abuja",
+      "senderId": "usr_emeka",
+      "content": "Abuja evening breeze at Millennium Park. Anyone attending the weekend founders mixer? 🌳",
+      "reactions": {
+        "🇳🇬": [
+          "usr_admin"
+        ]
+      },
+      "createdAt": "2026-03-14T09:35:00Z"
+    },
+    {
+      "id": "pubmsg_rivers_1",
+      "roomId": "rivers",
+      "senderId": "usr_chinedu",
+      "content": "Garden City vibes! Anyone around Stadium Road or GRA? Let us connect for good food and conversation! 🌊",
+      "reactions": {
+        "❤️": [
+          "usr_chioma"
+        ]
+      },
+      "createdAt": "2026-03-14T09:40:00Z"
+    },
+    {
+      "id": "pubmsg_1791747668578_oubg",
+      "roomId": "one-nigeria",
+      "senderId": "usr_chioma",
+      "content": "Testing One Nigeria chat room! Chioma can view this message and everybody can see it! 🇳🇬",
+      "reactions": {},
+      "createdAt": "2026-10-11T19:41:08.578Z"
+    },
+    {
+      "id": "pubmsg_1791747668585_xu6c",
+      "roomId": "one-nigeria",
+      "senderId": "usr_emeka",
+      "content": "Hello Chioma, loud and clear from Abuja! Everybody can see each other messages now! 🔥",
+      "reactions": {},
+      "createdAt": "2026-10-11T19:41:08.585Z"
     }
   ]
 }
